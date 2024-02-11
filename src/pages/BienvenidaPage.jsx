@@ -21,8 +21,8 @@ export const BienvenidaPage = () => {
       <p>Comencemos escribiendo tu nombre de usuario:</p>
       <input type="text" id="nombre" value={nombre} onChange={onInputChange2} />
       <p>Tienes un minuto para realizar la mayor cantidad de sumas.</p>
-      <button type="button" onClick={siguiente}>
-        Iniciar
+      <button type="button" className="comenzar" onClick={siguiente}>
+        Comenzar
       </button>
       </fieldset>
     </>

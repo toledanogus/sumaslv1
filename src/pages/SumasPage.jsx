@@ -8,7 +8,7 @@ export const SumasPage = () => {
   const [resultadoJs, setResultadoJs] = useState("");
   const [resultadoUsuario, setResultadoUsuario] = useState("");
   const { puntaje1, setPuntaje1 } = useContext(UserContext);
-  const [timer, setTimer] = useState(6000);
+  const [timer, setTimer] = useState(60);
   // eslint-disable-next-line no-unused-vars
   const { nombre, setNombre } = useContext(UserContext);
   const navigate = useNavigate();
@@ -16,14 +16,19 @@ export const SumasPage = () => {
   const inputRef = useRef(null);
 
   const generaAleatorios = () => {
-    if (resultadoUsuario !== '' && resultadoJs == resultadoUsuario) {
-        setPuntaje1(puntaje1 + 1);
+    if (resultadoUsuario !== "" && resultadoJs == resultadoUsuario) {
+      setPuntaje1(puntaje1 + 1);
+      setAleatorio1(Math.floor(Math.random() * 100)+1);
+      setAleatorio2(Math.floor(Math.random() * 100)+1);
+      setResultadoUsuario("");
     }
-    setAleatorio1(Math.floor(Math.random() * 100));
-    setAleatorio2(Math.floor(Math.random() * 100));
-    setResultadoUsuario('');
-}
+  };
 
+  const generaAleatorios2 = () => {
+    setAleatorio1(Math.floor(Math.random() * 100)+1);
+    setAleatorio2(Math.floor(Math.random() * 100)+1);
+    setResultadoUsuario("");
+  }
 
   const onInputChange = ({ target }) => {
     setResultadoUsuario(target.value);
@@ -56,20 +61,23 @@ export const SumasPage = () => {
   }, []);
 
   useEffect(() => {
-    generaAleatorios();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    generaAleatorios2();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <>
-      <h1>SumasApp</h1>
-      <button type="button" onClick={generaAleatorios}>
-        Verificar
-      </button>
+    <header>
+        <div className="timer">Tiempo restante: <span className="bold">{timer}</span></div>
+    </header>
+      <h1>Sumas</h1>
+        <button type="button" className="verificar" onClick={generaAleatorios}>
+          Verificar
+        </button>
       <div className="suma">
+        <span className="operador">+</span>
         <div className="numeros">
           <span className="numero">{aleatorio1}</span>
-          <span className="operador">+</span>
           <span className="numero">{aleatorio2}</span>
           <span className="linea"></span>
         </div>
@@ -80,13 +88,13 @@ export const SumasPage = () => {
         value={resultadoUsuario}
         onChange={onInputChange}
         onKeyDown={(event) => {
-            if (event.keyCode === 13) {
-                generaAleatorios();
-            }
+          if (event.keyCode === 13) {
+            generaAleatorios();
+          }
         }}
       />
-      <div>Puntaje: {puntaje1}</div>
-      <div className="timer">Tiempo restante:{timer}</div>
+      <div className="puntaje">Puntaje: {puntaje1}</div>
+      
     </>
   );
 };
