@@ -47,6 +47,9 @@ export const ResultadosPage = () => {
     if (nombre !== '') {
       enviarNombre().then(() => recibirData());
     }
+    else {
+      navigate("/Bienvenida");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependencias actualizadas
 
@@ -68,7 +71,7 @@ export const ResultadosPage = () => {
             {datos?.slice(0, 10).map((dato, index) => (
               <tr key={index}>
                 <td>
-                  {index === 0 && "1º"}
+                  <span className="bold">{index === 0 && "1º"}</span>
                   {index === 1 && "2º"}
                   {index === 2 && "3º"}
                   {index === 3 && "4º"}

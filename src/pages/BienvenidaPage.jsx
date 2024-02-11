@@ -11,7 +11,13 @@ export const BienvenidaPage = () => {
   };
 
   const siguiente = () => {
-    navigate("/sumas"); // Navega a la ruta /sumas
+    if (nombre !== '') {
+      navigate("/sumas"); // Navega a la ruta /sumas
+    }
+    else{
+      alert('Escribe tu nombre por favor');
+    }
+    
   };
 
   return (
