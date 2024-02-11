@@ -5,7 +5,7 @@ import { UserContext } from './createContext'
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({children}) => {
 const [nombre, setNombre] = useState('');
-const [puntaje1, setPuntaje1] = useState(-2);
+const [puntaje1, setPuntaje1] = useState(0);
 
   return (
     

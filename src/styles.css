@@ -1,0 +1,65 @@
+html {
+    background-color:azure;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+button {
+    margin: 15px;
+    padding: 0.5em
+}
+
+input{
+    margin: 10px;
+}
+
+div.timer{
+    margin: 15px;
+    color: rgb(255, 0, 0);
+}
+
+input[type="number"] {
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    color: rgb(31, 31, 31);
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+}
+div.suma {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    flex-direction: column;
+  }
+  
+  .operador {
+    font-size: 20px;
+    margin-right:40px;
+  }
+  
+  .numeros {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .numero {
+    margin: 5px;
+  }
+  
+  .linea {
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  
+}
