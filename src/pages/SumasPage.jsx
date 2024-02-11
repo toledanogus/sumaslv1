@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/createContext";
 
@@ -6,14 +6,11 @@ export const SumasPage = () => {
   const [aleatorio1, setAleatorio1] = useState(null);
   const [aleatorio2, setAleatorio2] = useState(null);
   const [resultadoJs, setResultadoJs] = useState("");
-  const [resultadoUsuario, setResultadoUsuario] = useState("");
+  const [resultadoUsuario, setResultadoUsuario] = useState(0);
   const { puntaje1, setPuntaje1 } = useContext(UserContext);
   const [timer, setTimer] = useState(60);
   // eslint-disable-next-line no-unused-vars
-  const { nombre, setNombre } = useContext(UserContext);
   const navigate = useNavigate();
-  // eslint-disable-next-line no-unused-vars
-  const inputRef = useRef(null);
 
   const generaAleatorios = () => {
     if (resultadoUsuario !== "" && resultadoJs == resultadoUsuario) {
@@ -28,6 +25,7 @@ export const SumasPage = () => {
     setAleatorio1(Math.floor(Math.random() * 100)+1);
     setAleatorio2(Math.floor(Math.random() * 100)+1);
     setResultadoUsuario("");
+    setPuntaje1(0);
   }
 
   const onInputChange = ({ target }) => {
