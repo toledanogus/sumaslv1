@@ -13,8 +13,10 @@ export const SumasPage = () => {
   const [timer, setTimer] = useState(60);
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const generaAleatorios = () => {
+    setIsProcessing(true);
     if (resultadoUsuario !== "" && resultadoJs == resultadoUsuario) {
       setPuntaje1(puntaje1 + 1);
       setAleatorio1(Math.floor(Math.random() * 100) + 1);
@@ -29,6 +31,7 @@ export const SumasPage = () => {
         audio.play();
         audio.volume = 0.4;
     }
+    setIsProcessing(false);
   };
 
   const generaAleatorios2 = () => {
@@ -103,7 +106,7 @@ export const SumasPage = () => {
         value={resultadoUsuario}
         onChange={onInputChange}
         onKeyDown={(event) => {
-          if (event.keyCode === 13) {
+          if (event.keyCode === 13 && !isProcessing) {
             generaAleatorios();
           }
         }}
