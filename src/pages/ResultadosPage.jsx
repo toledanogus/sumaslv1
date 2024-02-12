@@ -3,7 +3,7 @@ import { UserContext } from "../context/createContext";
 import { useNavigate } from "react-router-dom"; 
 
 export const ResultadosPage = () => {
-  const { nombre, puntaje1, setNombre, setPuntaje1} = useContext(UserContext);
+  const { nombre, puntaje1, setNombre, setPuntaje1, setContinuidad} = useContext(UserContext);
   const [datos, setDatos] = useState(null);
   const url = "../SumasReact/php/enviar.php";
   const url2 = "../SumasReact/php/recibir.php";
@@ -46,6 +46,7 @@ export const ResultadosPage = () => {
   useEffect(() => {
     if (nombre !== '') {
       enviarNombre().then(() => recibirData());
+      setContinuidad(0);
     }
     else {
       navigate("/Bienvenida");

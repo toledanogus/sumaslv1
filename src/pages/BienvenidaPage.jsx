@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Importa el hook useNavigate
 import { UserContext } from "../context/createContext";
 
 export const BienvenidaPage = () => {
-  const { nombre, setNombre } = useContext(UserContext);
+  // eslint-disable-next-line no-unused-vars
+  const { nombre, setNombre, setContinuidad } = useContext(UserContext);
   const navigate = useNavigate(); // Usa el hook useNavigate
 
   const onInputChange2 = ({ target }) => {
@@ -12,13 +13,19 @@ export const BienvenidaPage = () => {
 
   const siguiente = () => {
     if (nombre !== '') {
+      setContinuidad(1);
       navigate("/sumas"); // Navega a la ruta /sumas
     }
     else{
       alert('Escribe tu nombre por favor');
     }
-    
   };
+
+  useEffect(() => {
+   setNombre('');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
 
   return (
     <>

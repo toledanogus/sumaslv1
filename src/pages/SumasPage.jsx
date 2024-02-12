@@ -7,7 +7,7 @@ export const SumasPage = () => {
   const [aleatorio2, setAleatorio2] = useState(null);
   const [resultadoJs, setResultadoJs] = useState("");
   const [resultadoUsuario, setResultadoUsuario] = useState(0);
-  const { puntaje1, setPuntaje1 } = useContext(UserContext);
+  const { puntaje1, setPuntaje1, continuidad } = useContext(UserContext);
   const [timer, setTimer] = useState(60);
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
@@ -15,18 +15,23 @@ export const SumasPage = () => {
   const generaAleatorios = () => {
     if (resultadoUsuario !== "" && resultadoJs == resultadoUsuario) {
       setPuntaje1(puntaje1 + 1);
-      setAleatorio1(Math.floor(Math.random() * 100)+1);
-      setAleatorio2(Math.floor(Math.random() * 100)+1);
+      setAleatorio1(Math.floor(Math.random() * 100) + 1);
+      setAleatorio2(Math.floor(Math.random() * 100) + 1);
       setResultadoUsuario("");
     }
   };
 
   const generaAleatorios2 = () => {
-    setAleatorio1(Math.floor(Math.random() * 100)+1);
-    setAleatorio2(Math.floor(Math.random() * 100)+1);
-    setResultadoUsuario("");
-    setPuntaje1(0);
-  }
+    if (continuidad == 1) {
+      setAleatorio1(Math.floor(Math.random() * 100) + 1);
+      setAleatorio2(Math.floor(Math.random() * 100) + 1);
+      setResultadoUsuario("");
+      setPuntaje1(0);
+    }
+    else{
+      navigate("/Bienvenida");
+    }
+  };
 
   const onInputChange = ({ target }) => {
     setResultadoUsuario(target.value);
@@ -65,13 +70,15 @@ export const SumasPage = () => {
 
   return (
     <>
-    <header>
-        <div className="timer">Tiempo restante: <span className="bold">{timer}</span></div>
-    </header>
+      <header>
+        <div className="timer">
+          Tiempo restante: <span className="bold">{timer}</span>
+        </div>
+      </header>
       <h1>Sumas</h1>
-        <button type="button" className="verificar" onClick={generaAleatorios}>
-          Verificar
-        </button>
+      <button type="button" className="verificar" onClick={generaAleatorios}>
+        Verificar
+      </button>
       <div className="suma">
         <span className="operador">+</span>
         <div className="numeros">
@@ -92,7 +99,6 @@ export const SumasPage = () => {
         }}
       />
       <div className="puntaje">Puntaje: {puntaje1}</div>
-      
     </>
   );
 };
