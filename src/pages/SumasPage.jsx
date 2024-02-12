@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/createContext";
+import sonido from '../SumasReact/assets/clic1.wav';
+import sonido2 from '../SumasReact/assets/clic2.mp3';
 
 export const SumasPage = () => {
   const [aleatorio1, setAleatorio1] = useState(null);
@@ -18,6 +20,14 @@ export const SumasPage = () => {
       setAleatorio1(Math.floor(Math.random() * 100) + 1);
       setAleatorio2(Math.floor(Math.random() * 100) + 1);
       setResultadoUsuario("");
+      let audio = new Audio (sonido);
+        audio.play();
+        audio.volume = 0.4;
+    }
+    else if (resultadoUsuario !== "" && resultadoJs !== resultadoUsuario){
+      let audio = new Audio (sonido2);
+        audio.play();
+        audio.volume = 0.4;
     }
   };
 

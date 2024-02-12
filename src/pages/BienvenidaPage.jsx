@@ -17,7 +17,7 @@ export const BienvenidaPage = () => {
       navigate("/sumas"); // Navega a la ruta /sumas
     }
     else{
-      alert('Escribe tu nombre por favor');
+      alert('Escribe tu nombre por favor.');
     }
   };
 
