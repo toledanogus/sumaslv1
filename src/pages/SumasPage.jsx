@@ -53,7 +53,7 @@ export const SumasPage = () => {
   useEffect(() => {
     setResultadoJs(aleatorio1 + aleatorio2);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [aleatorio2]);
+  }, [aleatorio2, aleatorio1]);
 
   useEffect(() => {
     if (timer === 0) {
