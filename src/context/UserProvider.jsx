@@ -7,10 +7,11 @@ export const UserProvider = ({children}) => {
 const [nombre, setNombre] = useState('');
 const [puntaje1, setPuntaje1] = useState(0);
 const [continuidad, setContinuidad] = useState(0);
+const [selectedOption, setSelectedOption] = useState('');
 
   return (
     
-    <UserContext.Provider value={{nombre, setNombre, puntaje1, setPuntaje1, continuidad, setContinuidad}}>
+    <UserContext.Provider value={{nombre, setNombre, puntaje1, setPuntaje1, continuidad, setContinuidad, selectedOption, setSelectedOption}}>
         {children}
     </UserContext.Provider>
   )

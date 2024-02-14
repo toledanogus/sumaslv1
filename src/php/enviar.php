@@ -7,15 +7,24 @@ $jsonObj = json_decode($str_json);
 
 mysqli_select_db($connection,"toledan1_pedrueza");
 
-$peticion = mysqli_query($connection, "SELECT  registro, puntaje FROM familia WHERE nombre = '".$jsonObj->nom."'");
+$grupoSelect='".$jsonObj->grupo."';
+$tabla='';
+if ($grupoSelect=="6b") {
+    $tabla= 'familia';
+}
+elseif ($grupoSelect=="6a") {
+    $tabla='6Asumaslv2';
+}
+
+$peticion = mysqli_query($connection, "SELECT  registro, puntaje FROM $tabla WHERE nombre = '".$jsonObj->nom."'");
 $fila = mysqli_fetch_row($peticion);
 $gus = $fila[0];
 $gus2 = $fila[1];
 
 if ($gus == 0) {
-    mysqli_query($connection, "INSERT INTO familia (nombre, puntaje, registro) VALUES ('".$jsonObj->nom."','".$jsonObj->pun."', 1)");
+    mysqli_query($connection, "INSERT INTO $tabla (nombre, puntaje, registro) VALUES ('".$jsonObj->nom."','".$jsonObj->pun."', 1)");
 } 
 else if ($gus2 < $jsonObj->pun) {
-    mysqli_query($connection, "UPDATE familia SET puntaje = '".$jsonObj->pun."' WHERE nombre = '".$jsonObj->nom."'");
+    mysqli_query($connection, "UPDATE $tabla SET puntaje = '".$jsonObj->pun."' WHERE nombre = '".$jsonObj->nom."'");
 } 
 ?>

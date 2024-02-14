@@ -11,9 +11,15 @@ $x = json_decode($str_json);
 
 mysqli_select_db($connection,"toledan1_pedrueza");
 
-
-// Realizar la consulta SQL para obtener los nombres y puntajes de la tabla 'familia'
-$respuesta = mysqli_query($connection, "SELECT nombre, puntaje FROM familia ORDER BY puntaje DESC LIMIT 100");
+$grupoSelect='".$jsonObj->grupo."';
+$tabla='';
+if ($grupoSelect=="6b") {
+    $tabla= 'familia';
+}
+elseif ($grupoSelect=="6a") {
+    $tabla='sumaslv2';
+}
+$respuesta = mysqli_query($connection, "SELECT nombre, puntaje FROM $tabla ORDER BY puntaje DESC LIMIT 100");
 
 // Obtener todas las filas de resultados
 $rows = mysqli_fetch_all($respuesta, MYSQLI_ASSOC);
