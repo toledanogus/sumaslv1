@@ -7,10 +7,16 @@ import confetti from 'canvas-confetti';
 export const ResultadosPage = () => {
   const { nombre, puntaje1, setNombre, setPuntaje1, setContinuidad} = useContext(UserContext);
   const [datos, setDatos] = useState(null);
+  const [datosOld, setDatosOld] = useState(null);
   const url = "../SumasReact/php/enviar.php";
   const url2 = "../SumasReact/php/recibir.php";
   const navigate = useNavigate(); 
 
+  const handleAudio = () => {
+    let audio = new Audio (sonido);
+    audio.play();
+    audio.volume = 0.7;
+  }
   let datosJson = {
     nom: nombre,
     pun: puntaje1,
@@ -59,10 +65,39 @@ export const ResultadosPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependencias actualizadas
 
+  useEffect(() => {
+    if (datosOld?.length && puntaje1 > datosOld[0].puntajeOld) {
+      handleAudio();
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  }, [datosOld, puntaje1]);// Dependencias actualizadas
+
   return (
     <>
       <h1>¡Resultados!</h1>
       <h4>Hola {nombre}, tu puntaje es de {puntaje1}</h4>
+      <h4>Tu récord es de {datos?.length ? datos[0].puntaje : ""}.</h4>
+      <h2>
+  {datosOld?.length && datos?.length &&puntaje1 === datosOld[0].puntajeOld && datos[0].max_intentos > 1 ? (
+    <div>
+      ¡Has igualado tu récord! <br />
+      Intenta superarlo.
+    </div>
+  ) : null}
+</h2>
+
+<h2>
+  {datosOld?.length && puntaje1 > datosOld[0].puntajeOld ? (
+    <div>
+      ¡Has establecido un nuevo récord! <br />
+      ¡Felicidades!
+    </div>
+  ) : null}
+</h2>
       <div className="tablafinal">
         <table>
           <thead>
