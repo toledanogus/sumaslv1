@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/createContext";
-import sonido from '../SumasReact/assets/clic1.wav';
-import sonido2 from '../SumasReact/assets/clic2.mp3';
+import sonido from '../assets/clic1.wav';
+import sonido2 from '../assets/clic2.mp3';
 
 export const SumasPage = () => {
   const [aleatorio1, setAleatorio1] = useState(null);

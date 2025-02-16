@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Gus';
-    src: local('Gus'), url('/SumasReact/a year with your rain.ttf');
+    src: local('Gus'), url('./assets/a year with your rain.ttf');
   }
 
   @font-face {
     font-family: 'Gus2';
-    src: local('Gus2'), url('/SumasReact/Say_Something.ttf');
+    src: local('Gus2'), url('./assets/Say_Something.ttf');
   }
  *{
     box-sizing: border-box;
@@ -160,6 +160,9 @@ h1{
     margin-bottom: 10px;
 }
 
+.record{
+  color: #2B91AD;
+}
 .centered{
   text-align: center;
 }
