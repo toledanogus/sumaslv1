@@ -92,7 +92,7 @@ export const ResultadosPage = () => {
 
 <h2>
   {datosOld?.length && puntaje1 > datosOld[0].puntajeOld ? (
-    <div>
+    <div className="record">
       ¡Has establecido un nuevo récord! <br />
       ¡Felicidades!
     </div>

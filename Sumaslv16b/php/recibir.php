@@ -8,7 +8,7 @@ $jsonObj = json_decode($str_json);
 mysqli_select_db($connection,"toledan1_pedrueza");
   
 $tabla='6Bsumaslv1';
-$nombre = mysqli_real_escape_string($connection, $x->nom);
+$nombre = mysqli_real_escape_string($connection, $jsonObj->nom);
 
 // Realizar la consulta SQL para obtener los nombres y puntajes de la tabla 'familia'
 $respuesta = mysqli_query($connection, "SELECT nombre, puntaje, (SELECT MAX(intentos) FROM $tabla WHERE nombre = '$nombre') AS max_intentos FROM $tabla WHERE nombre = '$nombre' ORDER BY puntaje DESC LIMIT 50");
