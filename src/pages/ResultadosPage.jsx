@@ -8,8 +8,8 @@ export const ResultadosPage = () => {
   const { nombre, puntaje1, setNombre, setPuntaje1, setContinuidad} = useContext(UserContext);
   const [datos, setDatos] = useState(null);
   const [datosOld, setDatosOld] = useState(null);
-  const url = "../SumasReact/php/enviar.php";
-  const url2 = "../SumasReact/php/recibir.php";
+  const url = "./php/enviar.php";
+  const url2 = "./php/recibir.php";
   const navigate = useNavigate(); 
 
   const handleAudio = () => {
