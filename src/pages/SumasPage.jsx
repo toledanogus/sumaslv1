@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/createContext";
-import sonido from '../SumasReact/assets/clic1.wav';
-import sonido2 from '../SumasReact/assets/clic2.mp3';
+import sonido from '../assets/clic1.wav';
+import sonido2 from '../assets/clic2.mp3';
 
 export const SumasPage = () => {
   const [aleatorio1, setAleatorio1] = useState(null);
@@ -20,7 +20,7 @@ export const SumasPage = () => {
     if (resultadoUsuario !== "" && resultadoJs == resultadoUsuario) {
       setPuntaje1(puntaje1 + 1);
       setAleatorio1(Math.floor(Math.random() * 100) + 1);
-      setAleatorio2(Math.floor(Math.random() * 100) + 1);
+      setAleatorio2(Math.floor(Math.random() * 9) + 1);
       setResultadoUsuario("");
       let audio = new Audio (sonido);
         audio.play();
@@ -37,7 +37,7 @@ export const SumasPage = () => {
   const generaAleatorios2 = () => {
     if (continuidad == 1) {
       setAleatorio1(Math.floor(Math.random() * 100) + 1);
-      setAleatorio2(Math.floor(Math.random() * 100) + 1);
+      setAleatorio2(Math.floor(Math.random() * 9) + 1);
       setResultadoUsuario("");
       setPuntaje1(0);
     }
@@ -53,7 +53,7 @@ export const SumasPage = () => {
   useEffect(() => {
     setResultadoJs(aleatorio1 + aleatorio2);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [aleatorio2]);
+  }, [aleatorio2, aleatorio1]);
 
   useEffect(() => {
     if (timer === 0) {

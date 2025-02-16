@@ -1,18 +1,18 @@
 @font-face {
-    font-family: 'Gus';
-    src: local('Gus'), url('/SumasReact/a year with your rain.ttf');
-  }
+  font-family: 'Gus';
+  src: local('Gus'), url('./assets/a year with your rain.ttf');
+}
 
-  @font-face {
-    font-family: 'Gus2';
-    src: local('Gus2'), url('/SumasReact/Say_Something.ttf');
-  }
+@font-face {
+  font-family: 'Gus2';
+  src: local('Gus2'), url('./assets/Say_Something.ttf');
+}
  *{
     box-sizing: border-box;
  }
 
 html {
-    background-color:rgb(255, 255, 255);
+    background-color:#F2F7F9;
     margin: auto;
     display: flex;
     text-align: center;
@@ -27,24 +27,19 @@ body{
 
 }
 
-header{
-    background-color:rgb(255, 255, 255);
-    
-}
-
 button {
     padding: 0.5em;
     border-radius: 40px;
     font-size:30px;
-    background-color: rgb(255, 184, 88);
-    color: white;
+    background-color: #CDECEF;
+    color: #2B91AD;
     border: 0cm;
     font-family: 'Gus2';
     
 }
 
 .verificar{
-    background-color: rgb(251, 110, 255);
+    background-color: rgb(191, 89, 195);
     float: right;
     width: 80px; /* Ancho del botón */
     height: 80px; /* Altura del botón */
@@ -61,21 +56,19 @@ button {
   
   /* Cambio de estilo al pasar el cursor sobre el botón */
   .verificar:hover {
-    background-color: rgb(191, 89, 195);
+    background-color: #D3DDEA;
     box-shadow: -1px 1px 10px rgb(177, 157, 157); /* Cambia el color de fondo */
   }
 
 input{
-    
-    background-color: rgb(244, 150, 185);
+    background-color: #FFDAD8;
     border: 0.5px solid rgb(2, 2, 2);
     box-shadow: -4px 4px 20px rgb(177, 157, 157);
-    color: white;
+    color: #2B91AD;
     font-size: 30px;
     font-family: 'Gus2';
     text-align: center;
-    
-    
+      
 }
 
 div.timer{
@@ -87,9 +80,9 @@ div.timer{
 
 input[type="number"] {
     width: 100px;
-    background-color: rgb(255, 184, 88);
+    background-color: #FFDAD8;
     border-radius: 2px;
-    color: rgb(255, 255, 255);
+    color: #2B91AD;
     text-align: right;
     padding: 5px;
     font-size: 50px;
@@ -158,6 +151,11 @@ fieldset{
 h1{
     margin: 0;
     margin-bottom: 10px;
+    color: #2B91AD;
+}
+
+.record{
+  color: #2B91AD;
 }
 
 .centered{

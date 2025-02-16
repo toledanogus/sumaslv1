@@ -4,22 +4,22 @@ import { UserContext } from "../context/createContext";
 
 export const BienvenidaPage = () => {
   // eslint-disable-next-line no-unused-vars
-  const { nombre, setNombre, setContinuidad } = useContext(UserContext);
+  const { nombre, setNombre, setContinuidad,  } = useContext(UserContext);
   const navigate = useNavigate(); // Usa el hook useNavigate
 
   const onInputChange2 = ({ target }) => {
     setNombre(target.value);
   };
 
-  const siguiente = () => {
-    if (nombre !== '') {
-      setContinuidad(1);
-      navigate("/sumas"); // Navega a la ruta /sumas
-    }
-    else{
-      alert('Escribe tu nombre por favor.');
-    }
-  };
+const siguiente = () => {
+  if (nombre !== '') {
+    setContinuidad(1);
+    navigate("/sumas"); // Navega a la ruta /sumas
+  }
+  else{
+    alert('Escribe tu nombre.');
+  }
+};
 
   useEffect(() => {
    setNombre('');
@@ -38,6 +38,7 @@ export const BienvenidaPage = () => {
           value={nombre}
           onChange={onInputChange2}
         />
+       
         <p>Tienes un minuto para realizar la mayor cantidad de sumas.</p>
         <button type="button" className="comenzar" onClick={siguiente}>
           Comenzar

@@ -10,7 +10,7 @@ const [continuidad, setContinuidad] = useState(0);
 
   return (
     
-    <UserContext.Provider value={{nombre, setNombre, puntaje1, setPuntaje1, continuidad, setContinuidad}}>
+    <UserContext.Provider value={{nombre, setNombre, puntaje1, setPuntaje1, continuidad, setContinuidad, }}>
         {children}
     </UserContext.Provider>
   )
