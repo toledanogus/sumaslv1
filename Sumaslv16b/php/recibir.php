@@ -1,13 +1,9 @@
 <?php
-// Conectarse a la base de datos MySQL
 $connection = mysqli_connect("localhost", "toledan1_gus", "sfreud1978");
-
-// Establecer el conjunto de caracteres a utf8
 mysqli_set_charset($connection, "utf8");
 
-// Obtener el contenido JSON de la solicitud POST
 $str_json = file_get_contents("php://input");
-$x = json_decode($str_json);
+$jsonObj = json_decode($str_json);
 
 mysqli_select_db($connection,"toledan1_pedrueza");
   
